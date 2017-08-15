@@ -32,13 +32,14 @@ ALLOWED_HOSTS = ['192.168.1.39']
 # Application definition
 
 INSTALLED_APPS = [
-    'django.contrib.admin',
+    # 'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'account',
+    'django.contrib.admin',
 ]
 
 MIDDLEWARE = [
@@ -124,3 +125,9 @@ STATIC_URL = '/static/'
 LOGIN_REDIRECT_URL = reverse_lazy('dashboard')
 LOGIN_URL = reverse_lazy('login')
 LOGOUT_URL = reverse_lazy('logout')
+
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'tai94bn@gmail.com'
+EMAIL_HOST_PASSWORD = 'relax1994'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
