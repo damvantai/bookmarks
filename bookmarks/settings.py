@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'account',
     'django.contrib.admin',
+    'social.apps.django_app.default',
 ]
 
 MIDDLEWARE = [
@@ -134,3 +135,18 @@ EMAIL_USE_TLS = True
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
+
+AUTHENTICATION_BACKENDS = (
+    'django.contrib.auth.backends.ModelBackend',
+    'account.authentication.EmailAuthBackend',
+    'social.backends.facebook.FacebookOAuth2',
+    # 'social.backends.facebook.Facebook2OAuth2',
+    # 'social.backends.facebook.Facebook2AppOAuth2',
+    # 'social.backends.google.GoogleOAuth2',
+    # 'social.backends.twitter.TwitterOAuth',
+    # 'social.backends.email.EmailAuth',
+)
+
+SOCIAL_AUTH_FACEBOOK_KEY = '120733388574076'
+SOCIAL_AUTH_FACEBOOK_SECRET = '3a3171225613d89831449a20f848bb40'
+SOCIAL_AUTH_FACEBOOK_SCOPE = ['tai94bn@gmail.com']
