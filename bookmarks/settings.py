@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.admin',
     # 'social.apps.django_app.default',
     'images',
+    'sorl.thumbnail',
 ]
 
 MIDDLEWARE = [
@@ -151,3 +152,5 @@ AUTHENTICATION_BACKENDS = (
 SOCIAL_AUTH_FACEBOOK_KEY = '120733388574076'
 SOCIAL_AUTH_FACEBOOK_SECRET = '3a3171225613d89831449a20f848bb40'
 SOCIAL_AUTH_FACEBOOK_SCOPE = ['tai94bn@gmail.com']
+
+THUMBNAIL_DEBUG = True
