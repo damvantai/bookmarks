@@ -154,3 +154,7 @@ SOCIAL_AUTH_FACEBOOK_SECRET = '3a3171225613d89831449a20f848bb40'
 SOCIAL_AUTH_FACEBOOK_SCOPE = ['tai94bn@gmail.com']
 
 THUMBNAIL_DEBUG = True
+
+ABSOLUTE_URL_OVERRIDES = {
+    'auth.user': lambda u: reverse_lazy('user_detail', args=[u.username])
+}
