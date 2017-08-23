@@ -43,8 +43,8 @@ def dashboard(request):
         # If user is following others, retrieve only their actions
         # actions = actions.filter(user_id__in=following_ids)
         actions = actions.filter(user_id__in = following_ids).select_related('user', 'user__profile').prefetch_related('target')
-
-    actions = actions[:10]
+    #     actions = actions.filter(user_id__in=following_ids)
+    # actions = actions[:10]
 
     return render(request, 'account/dashboard.html',
                   {'section': 'dashboard', 'actions': actions})
@@ -60,7 +60,7 @@ def register(request):
             # Save the User object
             new_user.save()
             profile = Profile.objects.create(user=new_user)
-            # create_action(new_user, 'has created an account')
+            create_action(new_user, 'has created an account')
             return render(request, 'account/register_done.html',
                           {'new_user': new_user})
     else:
@@ -118,7 +118,7 @@ def user_follow(request):
                     user_from = request.user,
                     user_to = user
                 )
-                # create_action(request.user, 'is following', user)
+                create_action(request.user, 'is following', user)
             else:
                 Contact.objects.filter(user_from=request.user, user_to=user).delete()
 
